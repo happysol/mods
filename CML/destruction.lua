@@ -40,6 +40,8 @@ ProbablyEngine.rotation.register_custom(267, "CodeMyLife Destruction", {
 	{"48020",{"player.buff(48018)","DemonicCircleTele.pqikeybind"}},
 	-- Rain of Fire on Keybind
 	{"104232",{"!player.moving","RainOfFire.pqikeybind"},"ground"},
+	-- Shadowfury on Keybind
+	{"30283",{"!player.moving","Shadowfury.pqikeybind"},"ground"},
 	-- single=curse_of_the_elements,if=debuff.magic_vulnerability.down
 	{"1490",{"!target.debuff(1490)"}},
 	-- single+=/dark_soul,if=!talent.archimondes_darkness.enabled|(talent.archimondes_darkness.enabled&(charges=2|trinket.proc.intellect.react|trinket.stacking_proc.intellect.react|target.health.pct<=10))
@@ -56,8 +58,8 @@ ProbablyEngine.rotation.register_custom(267, "CodeMyLife Destruction", {
 	-- single+=/service_pet,if=talent.grimoire_of_service.enabled
     {"111898",{"talent(14)"}},	
 	-- single+=/summon_doomguard
-    {"18540",{"DoomGuard.coolvalue = 1","!player.moving","macros(ActiveCooldowns)","spellpower.snapboost >= 10000","player.hashero"}},
-    {"18540",{"DoomGuard.coolvalue = 2","!player.moving","spellpower.snapboost >= 10000","player.buff(113858)","player.hashero"}},
+    {"18540",{"DoomGuard.coolvalue = 1","!player.moving","macros(ActiveCooldowns)","player.buff(113858)","player.HasHero"}},
+    {"18540",{"DoomGuard.coolvalue = 2","!player.moving","player.buff(113858)","player.HasHero"}},
 	-- single+=/havoc,target=2,if=active_enemies>1
 	{"80240", {"player.aoe = 1","!player.moving","player.embers >= 17","!player.spell(113858).cooldown < 25","80240.notontarget"}},	
 	{"80240", {"player.aoe = 1","!player.moving","player.buff(113858)","player.embers >= 10","80240.notontarget"}},	
@@ -88,8 +90,8 @@ ProbablyEngine.rotation.register_custom(267, "CodeMyLife Destruction", {
 	{"77799",{"player.aoe = 1","player.moving"}},
 
 	-- aoe=summon_infernal
-    {"1122",{"DoomGuard.coolvalue = 1","!player.moving","macros(ActiveCooldowns)","spellpower.snapboost >= 10000","player.buff(113858).duration > 5","player.hashero"}},
-    {"1122",{"DoomGuard.coolvalue = 2","!player.moving","spellpower.snapboost >= 10000","player.hashero"}},
+    {"1122",{"DoomGuard.coolvalue = 1","!player.moving","macros(ActiveCooldowns)","player.buff(113858).duration > 5","player.hashero"}},
+    {"1122",{"DoomGuard.coolvalue = 2","!player.moving","player.buff(113858).duration > 5","player.hashero"}},
 	-- aoe+=/rain_of_fire,if=!ticking&!in_flight
 	{"104232",{"player.aoe = 2","!modifier.last","104232.automouse(RainOfFire)"},"ground"},  	
 	-- aoe+=/fire_and_brimstone,if=ember_react&buff.fire_and_brimstone.down
